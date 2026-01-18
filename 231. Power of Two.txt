@@ -1,0 +1,13 @@
+231. Power of Two
+
+Problem Statement:
+Given an integer n, return true if it is a power of two.
+
+Approach:
+A power of two has only one set bit in its binary representation. If n is greater than zero and n & (n - 1) equals zero, then it is a power of two. This uses bit manipulation and runs in constant time.
+
+JavaScript Code:
+
+var isPowerOfTwo = function(n) {
+    return n > 0 && (n & (n - 1)) === 0;
+};

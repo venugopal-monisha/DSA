@@ -1,0 +1,26 @@
+242. Valid Anagram
+
+Problem Statement:
+Given two strings s and t, determine if t is an anagram of s. An anagram uses all characters exactly once.
+
+Approach:
+To check if two strings are anagrams, they must have the same characters with the same frequency. A frequency map can be used to count characters in the first string and decrease the count while traversing the second string. If any character count becomes negative or if lengths differ, the strings are not anagrams. This approach avoids sorting and works efficiently in linear time.
+
+JavaScript Code:
+
+var isAnagram = function(s, t) {
+    if (s.length !== t.length) return false;
+
+    let count = new Array(26).fill(0);
+
+    for (let ch of s) {
+        count[ch.charCodeAt(0) - 97]++;
+    }
+
+    for (let ch of t) {
+        count[ch.charCodeAt(0) - 97]--;
+        if (count[ch.charCodeAt(0) - 97] < 0) return false;
+    }
+
+    return true;
+};
