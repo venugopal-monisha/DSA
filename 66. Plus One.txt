@@ -1,0 +1,21 @@
+66. Plus One
+
+Problem Statement:
+You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant. Increment the large integer by one and return the resulting array of digits.
+
+Approach:
+Start from the last digit and add one. If the digit becomes 10, set it to 0 and carry forward. Continue this process until there is no carry left. If all digits were 9, an extra digit is required at the beginning. This approach simulates manual addition and processes the array from right to left efficiently.
+
+JavaScript Code:
+
+var plusOne = function(digits) {
+    for (let i = digits.length - 1; i >= 0; i--) {
+        if (digits[i] < 9) {
+            digits[i]++;
+            return digits;
+        }
+        digits[i] = 0;
+    }
+    digits.unshift(1);
+    return digits;
+};

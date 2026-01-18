@@ -1,0 +1,19 @@
+28. Find the Index of the First Occurrence in a String
+
+Problem Statement:
+Given two strings haystack and needle, return the index of the first occurrence of needle in haystack, or -1 if it does not occur.
+
+Approach:
+Use a sliding window to compare substrings of haystack with needle. If a match is found, return the index.
+
+JavaScript Code:
+
+var strStr = function(haystack, needle) {
+    if (needle === "") return 0;
+
+    for (let i = 0; i <= haystack.length - needle.length; i++) {
+        if (haystack.substring(i, i + needle.length) === needle)
+            return i;
+    }
+    return -1;
+};

@@ -1,0 +1,19 @@
+55. Jump Game
+
+Problem Statement:
+You are given an integer array nums. Each element represents the maximum jump length at that position. Determine if you can reach the last index starting from the first index.
+
+Approach:
+Use a greedy strategy by tracking the maximum index that can be reached so far. While traversing the array, if the current index is greater than the reachable index, return false. Otherwise, update the reachable index. If the reachable index reaches or exceeds the last index, return true.
+
+JavaScript Code:
+
+var canJump = function(nums) {
+    let maxReach = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (i > maxReach) return false;
+        maxReach = Math.max(maxReach, i + nums[i]);
+    }
+    return true;
+};

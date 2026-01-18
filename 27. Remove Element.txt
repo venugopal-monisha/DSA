@@ -1,0 +1,21 @@
+27. Remove Element
+
+Problem Statement:
+Given an integer array nums and an integer val, remove all occurrences of val in-place and return the new length.
+
+Approach:
+Use a pointer to track the position of valid elements. Traverse the array and copy elements that are not equal to val to the front. The pointer value at the end represents the new length.
+
+JavaScript Code:
+
+var removeElement = function(nums, val) {
+    let k = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== val) {
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+    return k;
+};
