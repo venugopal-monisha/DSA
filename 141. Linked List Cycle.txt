@@ -1,0 +1,20 @@
+141. Linked List Cycle
+
+Problem Statement:
+Check if a linked list contains a cycle.
+
+Approach:
+Use slow and fast pointers. If they meet, a cycle exists.
+
+JavaScript Code:
+
+var hasCycle = function(head) {
+    let slow = head, fast = head;
+
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow === fast) return true;
+    }
+    return false;
+};

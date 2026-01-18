@@ -1,0 +1,21 @@
+53. Maximum Subarray
+
+Problem Statement:
+Find the contiguous subarray with the largest sum.
+
+Approach:
+Kadane’s algorithm is used. At each element, decide whether to extend the current subarray or start a new one.
+
+JavaScript Code:
+
+var maxSubArray = function(nums) {
+    let currSum = nums[0];
+    let maxSum = nums[0];
+
+    for (let i = 1; i < nums.length; i++) {
+        currSum = Math.max(nums[i], currSum + nums[i]);
+        maxSum = Math.max(maxSum, currSum);
+    }
+
+    return maxSum;
+};

@@ -1,0 +1,23 @@
+20. Valid Parentheses
+
+Problem Statement:
+Determine if the parentheses in a string are valid.
+
+Approach:
+Use a stack. Push opening brackets and pop when a matching closing bracket appears. If mismatched or stack not empty at end, return false.
+
+JavaScript Code:
+
+var isValid = function(s) {
+    let stack = [];
+    let map = { ')': '(', '}': '{', ']': '[' };
+
+    for (let ch of s) {
+        if (ch === '(' || ch === '{' || ch === '[') {
+            stack.push(ch);
+        } else {
+            if (stack.pop() !== map[ch]) return false;
+        }
+    }
+    return stack.length === 0;
+};

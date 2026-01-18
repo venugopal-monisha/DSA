@@ -1,0 +1,21 @@
+121. Best Time to Buy and Sell Stock
+
+Problem Statement:
+You are given an array of prices. Find the maximum profit from buying once and selling once.
+
+Approach:
+Track the minimum price so far and calculate profit at each step. Update the maximum profit when a better one is found.
+
+JavaScript Code:
+
+var maxProfit = function(prices) {
+    let minPrice = Infinity;
+    let maxProfit = 0;
+
+    for (let price of prices) {
+        minPrice = Math.min(minPrice, price);
+        maxProfit = Math.max(maxProfit, price - minPrice);
+    }
+
+    return maxProfit;
+};
